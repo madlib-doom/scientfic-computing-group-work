@@ -1,12 +1,7 @@
 import numpy as np
 
 
-temperatures_c = np.array([
-    18.5, 18.0, 17.8, 17.5, 17.9, 19.0,
-    21.5, 23.8, 25.6, 27.1, 28.3, 29.0,
-    29.4, 29.1, 28.5, 27.6, 26.2, 24.8,
-    23.4, 22.1, 21.0, 20.2, 19.6, 19.0,
-])
+temperatures_c =np.random.uniform(low=-10.0, high=40.0, size=30)  # Generate 30 random temperatures in Celsius
 
 mean_temp = np.mean(temperatures_c)
 min_temp = np.min(temperatures_c)
