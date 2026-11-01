@@ -93,14 +93,102 @@ Get-ChildItem -Filter "Task_*.py" | Sort-Object Name | ForEach-Object {
 
 ### Tasks 2–5: NumPy and numerical computation
 
-- **Task 2:** Stores hourly temperatures in an array and calculates the
-  daily mean, minimum, maximum, and Fahrenheit conversion.
+- **Task 2:** Generates 30 random Celsius temperatures uniformly between
+  -10 and 40, then calculates their mean, minimum, maximum, and Fahrenheit
+  conversions. The sample changes on each run.
 - **Task 3:** Compares a Python loop with NumPy vectorization for processing
-  network-latency measurements.
-- **Task 4:** Demonstrates floating-point comparison, absolute error,
-  relative error, and a numerically stable expression.
-- **Task 5:** Applies scaling and rotation matrices to two-dimensional
-  points.
+  network-latency measurements. In the reported experiment with 1,000,000
+  values, the loop took about 0.3329 seconds and the vectorized operation
+  about 0.0080 seconds, making vectorization approximately 41.8 times faster.
+  With only 10 values, the loop appeared faster because NumPy's setup and
+  processing overhead can outweigh its benefits for very small inputs.
+  Overall, vectorization is generally more efficient for large numerical
+  datasets, while loops can suit small datasets or more complex
+  item-by-item logic. The best choice depends on the data size and operation;
+  timings vary by machine. The current script uses seed 100 to generate 10
+  measurements.
+
+#### Task 4: Numerical Precision, Error Analysis and Numerical Stability
+
+##### 1. Floating-Point Precision
+
+The experiment initially used 0.1 + 0.2 and compared the calculated result
+with the expected value of 0.3. Additional test cases using different decimal
+combinations, including 0.5 + 0.5, 0.25 + 0.25 and 0.123456789 + 0.987654321,
+were introduced to observe how floating-point calculations behave with
+different inputs.
+
+**Conclusion:** The results demonstrated that computers do not always
+represent decimal numbers with perfect accuracy. Some calculations produced
+slight differences between the calculated and expected values, causing exact
+comparisons to return False. However, tolerance-based comparisons using
+`np.isclose()` were able to recognize that the values were sufficiently
+close. This showed why tolerance-based comparisons are often more reliable
+when working with floating-point numbers.
+
+##### 2. Absolute Error and Relative Error
+
+The experiment used the square root of 2 as the true value and compared it
+against different approximations, ranging from 1.414213562 to 0.5. This
+helped investigate how changing the accuracy of an approximation affects the
+resulting errors.
+
+**Conclusion:** The results showed that the further an approximation moves
+away from the true value, the greater the absolute and relative errors
+become. Highly accurate approximations produced very small errors, while
+less accurate estimates resulted in larger differences. This demonstrated
+that absolute error measures the actual difference between two values,
+whereas relative error indicates how significant that difference is in
+relation to the true value.
+
+##### 3. Numerical Stability and Catastrophic Cancellation
+
+The experiment compared two mathematically equivalent expressions using
+different input values ranging from 1e-1 to 1e-16. The objective was to
+investigate whether both expressions would maintain the same accuracy as the
+input values became increasingly smaller.
+
+**Conclusion:** The results showed that both expressions produced nearly
+identical results when larger input values were used. However, as the inputs
+approached zero, the direct expression started losing numerical precision
+due to catastrophic cancellation, which occurs when subtracting two nearly
+equal numbers. The stable expression avoided this subtraction and maintained
+a result closer to the expected value of 0.5. At extremely small inputs, such
+as 1e-16, the direct expression could even produce zero because of the
+limitations of floating-point precision.
+
+##### Overall Conclusion
+
+Through these experiments, I developed a better understanding of how
+numerical precision affects mathematical calculations performed by
+computers. I observed that floating-point representation can introduce small
+inaccuracies, making tolerance-based comparisons more appropriate than
+relying entirely on exact equality. I also learned how absolute and relative
+errors help measure the accuracy of numerical approximations and how
+numerical stability affects the reliability of mathematical calculations.
+
+The most important observation was that mathematically equivalent
+expressions do not necessarily produce equally accurate computational
+results. Choosing a numerically stable expression can significantly reduce
+precision loss, particularly when working with extremely small values.
+Overall, these experiments demonstrated the importance of understanding
+floating-point limitations, measuring computational errors and selecting
+appropriate mathematical approaches to achieve more reliable numerical
+results.
+
+### Matrix Transformations and Determinants
+
+This experiment demonstrated how matrix transformations can be used to
+rotate and scale points in a two-dimensional coordinate system. By changing
+the rotation angle from 45° to 60°, I observed how the positions and
+orientation of the transformed points changed. However, the determinant
+remained theoretically constant at 3 because rotation does not affect the
+area of a shape, while scaling by factors of 2 and 1.5 increases its area by
+a factor of 3. Any extremely small variations in the calculated determinant
+can be attributed to floating-point numerical precision. Overall, the
+experiment helped me understand how matrix multiplication combines
+different transformations and how determinants provide information about
+the effect of a transformation on the area of geometric shapes.
 
 ### Tasks 6–9: Linear algebra
 
@@ -154,7 +242,7 @@ For every task, document the following:
 
 Suggested parameter changes include:
 
-- Change the temperature readings in Task 2.
+- Change the temperature range or sample size in Task 2.
 - Change the matrix or right-hand side in Tasks 6–9.
 - Change the initial guess or tolerance in Tasks 10–12.
 - Change the interpolation interval or measured values in Task 13.

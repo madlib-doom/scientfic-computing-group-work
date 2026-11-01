@@ -3,8 +3,8 @@ import timeit
 import numpy as np
 
 
-rng = np.random.default_rng(42)
-latency_ms = rng.uniform(5, 250, 1_000_000)
+rng = np.random.default_rng(100)
+latency_ms = rng.uniform(10, 2500, 10)
 
 
 def loop_version() -> list[float]:

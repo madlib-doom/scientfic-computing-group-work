@@ -7,7 +7,7 @@ points = np.array([
     [1.0, 1.0],
     [0.0, 1.0],
 ])
-angle = np.deg2rad(45)
+angle = np.deg2rad(60)
 rotation = np.array([
     [np.cos(angle), -np.sin(angle)],
     [np.sin(angle), np.cos(angle)],
@@ -18,7 +18,7 @@ scale = np.array([
 ])
 
 transformation = rotation @ scale
-transformed_points = points @ transformation.T
+transformed_points = points @ transformation
 
 print("Original points:\n", points)
 print("Transformation matrix:\n", transformation)
