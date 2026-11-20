@@ -19,9 +19,9 @@ def fixed_point(temperature: float | np.ndarray) -> float | np.ndarray:
     return 25 + 10 * np.exp(-temperature / 20)
 
 
-temperature = 30.0
+temperature = 31.9
 history = [temperature]
-for _ in range(100):
+for _ in range(500):
     new_temperature = fixed_point(temperature)
     history.append(new_temperature)
     if abs(new_temperature - temperature) < 1e-10:

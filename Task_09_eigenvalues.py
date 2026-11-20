@@ -1,12 +1,7 @@
 import numpy as np
 
 
-adjacency = np.array([
-    [0.0, 1.0, 1.0, 0.0],
-    [1.0, 0.0, 1.0, 1.0],
-    [1.0, 1.0, 0.0, 1.0],
-    [0.0, 1.0, 1.0, 0.0],
-])
+adjacency =array = np.random.randint(0, 2, size=(4, 4)).astype(float)
 eigenvalues, eigenvectors = np.linalg.eig(adjacency)
 index = np.argmax(np.real(eigenvalues))
 dominant_value = np.real(eigenvalues[index])

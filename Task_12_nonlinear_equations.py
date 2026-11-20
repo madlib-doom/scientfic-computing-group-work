@@ -10,7 +10,7 @@ def equations(values: np.ndarray) -> np.ndarray:
     ])
 
 
-solution = root(equations, x0=[3.0, 2.0])
+solution = root(equations, x0=[2.0, 5.0])
 
 print("Solver success:", solution.success)
 print("Solution [x, y]:", solution.x)

@@ -1,7 +1,7 @@
 from scipy.optimize import root_scalar
 
 
-cash_flows = [-10000, 3000, 3500, 4000, 2500]
+cash_flows = [-200000, 6700000, 3500050, 400000, 256700]
 
 
 def npv(rate: float) -> float:

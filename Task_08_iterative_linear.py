@@ -2,13 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-A = np.array([
-    [2.0, -1.0, 0.0, 0.0, 0.0],
-    [-1.0, 2.0, -1.0, 0.0, 0.0],
-    [0.0, -1.0, 2.0, -1.0, 0.0],
-    [0.0, 0.0, -1.0, 2.0, -1.0],
-    [0.0, 0.0, 0.0, -1.0, 2.0],
-])
+A = np.random.randint(0,2,size=(5,5)).astype(float)
 b = np.array([100.0, 0.0, 0.0, 0.0, 20.0])
 
 
