@@ -2,11 +2,7 @@ import numpy as np
 from scipy.linalg import lu, solve_triangular
 
 
-A = np.array([
-    [3.0, 2.0, -1.0],
-    [2.0, -2.0, 4.0],
-    [-1.0, 0.5, -1.0],
-])
+A = np.random.randint(0, 10, size=(3, 3)).astype(float)
 b = np.array([1.0, -2.0, 0.0])
 
 P, L, U = lu(A)

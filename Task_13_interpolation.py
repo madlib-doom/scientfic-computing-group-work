@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 from scipy.interpolate import CubicSpline, interp1d
 
 
-hours = np.array([8, 9, 10, 11, 12, 13, 14], dtype=float)
-temperature = np.array([18.0, 20.0, 22.5, 24.0, 25.0, 25.5, 25.0])
+hours = np.array([8, 9, 13,16,17,20], dtype=float)
+temperature = np.array([18.0, 20.0, 22.5, 24.0, 25.0, 25.5], dtype=float)
 linear = interp1d(hours, temperature, kind="linear")
 cubic = CubicSpline(hours, temperature)
 ten_minute_times = np.arange(8, 14 + 1 / 6, 1 / 6)

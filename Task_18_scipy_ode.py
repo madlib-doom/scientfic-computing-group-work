@@ -3,9 +3,9 @@ from scipy.integrate import solve_ivp
 import matplotlib.pyplot as plt
 # RC charging circuit:
 # dV/dt = (Vs - V)/(R*C)
-Vs = 5.0 # supply voltage (V)
-R = 1000.0 # resistance (ohms)
-C = 0.001 # capacitance (farads)
+Vs = 15.0 # supply voltage (V)
+R = 10000.0 # resistance (ohms)
+C = 0.004 # capacitance (farads)
 V0 = 0.0 # initial capacitor voltage
 def rc_circuit(t, V):
     return [(Vs - V[0]) / (R * C)]

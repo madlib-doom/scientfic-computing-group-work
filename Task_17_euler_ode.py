@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 # Newton's law of cooling:
 # dT/dt = -k(T - T_ambient)
-T_ambient = 25.0
-T_initial = 90.0
-k = 0.12
+T_ambient = 40.0
+T_initial = 70.0
+k = 0.02
 h = 1.0 # minutes
 end_time = 30.0
 def cooling_rate(T):

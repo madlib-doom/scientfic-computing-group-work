@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 
-users = np.array([50, 100, 150, 200, 250, 300, 350], dtype=float)
-response_ms = np.array([82, 95, 115, 145, 185, 238, 305], dtype=float)
+users = np.array([50, 100, 200,300,400,500,600,700], dtype=float)
+response_ms = np.array([82, 95, 115, 145, 185, 238, 305, 380], dtype=float)
 
 
 def model(x: np.ndarray, a: float, b: float, c: float) -> np.ndarray:

@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-time = np.array([0, 1, 2, 3, 4, 5, 6], dtype=float)
-position = np.array([0.0, 4.8, 10.2, 16.1, 22.7, 30.0, 38.0])
+time = np.array([0, 3, 6, 9, 12, 15, 18], dtype=float)
+position = np.array([0, 3.5, 7.8, 12.1, 16.5, 21.0, 25.6], dtype=float)
 speed = np.zeros_like(position)
 speed[0] = (position[1] - position[0]) / (time[1] - time[0])
 
